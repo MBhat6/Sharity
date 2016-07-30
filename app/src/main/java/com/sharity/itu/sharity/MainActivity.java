@@ -11,6 +11,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         myDb = new DatabaseCreator(this);
-        //this is a test push
+        ///this is a test push
+        //this is pull test
     }
 }
