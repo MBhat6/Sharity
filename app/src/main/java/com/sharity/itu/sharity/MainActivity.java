@@ -13,6 +13,6 @@ public class MainActivity extends AppCompatActivity {
         myDb = new DatabaseCreator(this);
         ///this is a test push
         //this is pull test 2 - Madhura
-        // now is update test
+        //update -2
     }
 }
