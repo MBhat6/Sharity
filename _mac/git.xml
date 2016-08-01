@@ -1,6 +1,6 @@
 <application>
   <component name="Git.Application.Settings">
-    <option name="myPathToGit" value="$USER_HOME$/Downloads/git-2.9.2-intel-universal-mavericks.dmg" />
+    <option name="myPathToGit" value="$USER_HOME$/Desktop/git-2.9.2-intel-universal-mavericks" />
     <option name="SSH_EXECUTABLE" value="IDEA_SSH" />
   </component>
 </application>
