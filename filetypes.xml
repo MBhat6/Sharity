@@ -1,0 +1,9 @@
+<application>
+  <component name="FileTypeManager" version="16">
+    <extensionMap>
+      <mapping ext="eps" type="Images" />
+      <mapping pattern="aidl" type="PLAIN_TEXT" />
+      <mapping ext="dsa" type="PLAIN_TEXT" />
+    </extensionMap>
+  </component>
+</application>
