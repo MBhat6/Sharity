@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "377815876365",
+    "project_id": "sharity-1470094275929"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:377815876365:android:c593874beb1b2bca",
+        "android_client_info": {
+          "package_name": "com.sharity.itu.sharity"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "377815876365-v8mm64skssusebigm0at9kq2reeo3ko7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.sharity.itu.sharity",
+            "certificate_hash": "A1A8696BD1550A337FEE160DFEBB4CDA6B23A589"
+          }
+        },
+        {
+          "client_id": "377815876365-ul2442jfr5j1lv44lovjbkapa3l1ep3p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBpVD-einYujjNlArkirI9CW1Vi6pKxynw"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,26 +1,82 @@
 apply plugin: 'com.android.application'
 
+
 android {
+    signingConfigs {
+        config {
+            keyAlias 'MyAndroidKey'
+            keyPassword 'sharity'
+            storeFile file('C:/Users/Madhura/.android/android.jks')
+            storePassword 'sharity'
+        }
+    }
     compileSdkVersion 23
     buildToolsVersion "23.0.3"
-
     defaultConfig {
         applicationId "com.sharity.itu.sharity"
-        minSdkVersion 16
         targetSdkVersion 23
         versionCode 1
         versionName "1.0"
+
+        minSdkVersion 23
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
+
+    packagingOptions {
+        exclude 'LICENSE.txt'
+
+    }
+
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+//            debuggable false
+//            jniDebuggable false
+//            signingConfig signingConfigs.config
+//            renderscriptDebuggable false
+//            zipAlignEnabled true
         }
+        debug {
+            signingConfig signingConfigs.config
+            minifyEnabled false
+        }
+    }
+    productFlavors {
+    }
+
+    configurations.all {
+        resolutionStrategy.force 'com.android.support:support-annotations:23.0.0'
     }
 }
 
 dependencies {
+//    compile fileTree(include: ['*.jar'], dir: 'libs')
+//    testCompile 'junit:junit:4.12'
+//    compile 'com.android.support:appcompat-v7:23.4.0'
+//    compile 'com.android.support:design:23.4.0'
+//    //compile 'com.google.android.gms:play-services-auth:8.4.0'
+//    //compile 'com.google.android.gms:play-services-appindexing:8.4.0'
+//    //compile 'com.google.android.gms:play-services-analytics:8.3.0'
+//    //compile 'com.google.android.gms:play-services:8.3.0'
+//    compile 'com.google.gms:google-services:2.1.2'
+
+//    ------------------------------------------------------
+
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:23.4.0'
+    compile 'com.android.support:design:23.4.0'
+
+    // Dependency for Google Sign-In
+    compile 'com.google.android.gms:play-services-auth:9.0.0'
+
+    androidTestCompile 'com.android.support.test:runner:0.5'
+    androidTestCompile 'com.android.support.test:rules:0.5'
+   // androidTestCompile 'com.android.support.test.uiautomator:uiautomator-v17:2.1.2'
+    androidTestCompile 'com.android.support:support-annotations:23.0.0'
+    testCompile 'junit:junit:4.12'
+    testCompile 'org.testng:testng:6.9.6'
 }
+
+apply plugin: 'com.google.gms.google-services'

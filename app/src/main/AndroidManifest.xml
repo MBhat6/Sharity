@@ -4,17 +4,61 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/sharity_icon"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:label="@string/app_name"
+            android:name=".SignUp">
+        </activity>
+
+        <activity
+            android:label="@string/app_name"
+            android:name=".SignUpDetailsPage">
+        </activity>
+
+        <activity
+            android:label="@string/app_name"
+            android:name=".HomePage">
+        </activity>
+
+        <activity
+            android:label="@string/app_name"
+            android:name=".NewsPage">
+        </activity>
+
+        <activity
+            android:label="@string/app_name"
+            android:name=".ProfilePage">
+        </activity>
+
+        <activity
+            android:label="@string/app_name"
+            android:name=".NewRequestPage">
+        </activity>
+
+        <activity
+            android:label="@string/app_name"
+            android:name=".MyHistoryPage">
+        </activity>
+
+        <!--
+        ATTENTION: This was auto-generated to add Google Play services to your project for
+     App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information.  -->
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
     </application>
 
 </manifest>

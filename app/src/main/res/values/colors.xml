@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
+    <color name="colorPrimary">#3f51b5</color>
+    <color name="colorPrimaryDark">#564d8d</color>
+    <color name="colorAccent">#ff4081</color>
+    <color name="custom_sharity">#848eef</color>
+    <color name="sharity_grey">#333030</color>
+    <color name="sharity_black">#1f050505</color>
+    <color name="sharityBlack">#000000</color>
+    <color name="HomeBtn_color">#948fb1</color>
+    <color name="sharity_color_grey">#312e2e</color>
 </resources>
