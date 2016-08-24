@@ -20,11 +20,11 @@ public class MyHistoryPage extends  Activity implements OnClickListener{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.history_page);
 
-        name = (TextView) findViewById(R.id.userName);
-        name.setText("Priyanka Gopalakrishna"); //Temporary hard coded value
-
-        homeButton = (TextView) findViewById(R.id.homeBtn);
-        homeButton.setOnClickListener(this);
+//        name = (TextView) findViewById(R.id.userName);
+//        name.setText("Priyanka Gopalakrishna"); //Temporary hard coded value
+//
+//        homeButton = (TextView) findViewById(R.id.homeBtn);
+//        homeButton.setOnClickListener(this);
     }
 
     @Override

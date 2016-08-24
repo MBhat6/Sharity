@@ -113,9 +113,21 @@
     <string name="Str_sign_up_Btn">Sign Up</string>
     <string name="Str_sign_up_header">Sign Up for Sharity</string>
     <string name="profile_com_text">Please complete the Profile</string>
-
-
-
+    <string name="update_profile">Update credentials</string>
+    <string name="Str_email_text">E-mail</string>
+    <string name="Str_pwd_text">Set password</string>
+    <string name="Str_Re_pwd_text">Re-enter password</string>
     <string name="btn_revoke_access">Revoke</string>
+
+    <string-array name="navigation_drawer_items_array">
+        <item>New Request</item>
+        <item>History</item>
+        <item>Edit profile</item>
+        <item>Home</item>
+        <item>Logout</item>
+    </string-array>
+
+    <string name="openDrawer">Open</string>
+    <string name="closeDrawer">Close</string>
 
 </resources>

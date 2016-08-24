@@ -77,6 +77,9 @@ dependencies {
     androidTestCompile 'com.android.support:support-annotations:23.0.0'
     testCompile 'junit:junit:4.12'
     testCompile 'org.testng:testng:6.9.6'
+
+    compile 'de.hdodenhof:circleimageview:1.2.1'
+
 }
 
 apply plugin: 'com.google.gms.google-services'

@@ -28,9 +28,6 @@ public class ProfilePage extends  Activity implements View.OnTouchListener,
         super.onCreate(savedInstanceState);
         setContentView(R.layout.profile_page);
 
-        homeButton = (TextView) findViewById(R.id.homeBtn);
-        homeButton.setOnClickListener(this);
-
         program = (EditText) findViewById(R.id.course);
         program.setOnTouchListener(this);
 
@@ -49,9 +46,7 @@ public class ProfilePage extends  Activity implements View.OnTouchListener,
     @Override
     public void onClick(View v) {
 
-        Log.i("clicks","You clicked home button in My Profile");
-        Intent i = new Intent(ProfilePage.this, HomePage.class);
-        startActivity(i);
+
 
     }
 

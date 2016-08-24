@@ -8,6 +8,12 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+
+    <style name="MyActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
     <style name="AppTheme.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
@@ -19,12 +25,12 @@
 
     <style name="MyEditTextTheme">
         <!-- Used for the bottom line of EditText to be white -->
-        <item name="colorControlNormal">@android:color/white</item>
+        <item name="colorControlNormal">@color/common_plus_signin_btn_text_dark_disabled</item>
     </style>
 
     <style name="MyRequestTheme">
         <!-- Used for the bottom line of EditText to be white -->
-        <item name="colorControlNormal">@android:color/white</item>
+        <item name="colorControlNormal">@color/common_plus_signin_btn_text_dark_disabled</item>
     </style>
 
 </resources>
