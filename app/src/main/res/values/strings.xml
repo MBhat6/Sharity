@@ -103,6 +103,7 @@
     <string name="Str_Home_Btn">Home</string>
     <string name="Str_Update_Btn">Save</string>
     <string name="Str_Profile_txt">My Profile</string>
+    <string name="Str_Current_program">Current Program</string>
     <string name="Str_SignUp_txt">Sign Up</string>
     <string name="Str_Category_txt">Category</string>
     <string name="Str_Priority_txt">Priority</string>
@@ -115,9 +116,30 @@
     <string name="profile_com_text">Please complete the Profile</string>
     <string name="update_profile">Update credentials</string>
     <string name="Str_email_text">E-mail</string>
-    <string name="Str_pwd_text">Set password</string>
-    <string name="Str_Re_pwd_text">Re-enter password</string>
+    <string name="Str_pwd_text">Set Password</string>
+    <string name="Str_Re_pwd_text">Re-enter Password</string>
     <string name="btn_revoke_access">Revoke</string>
+    <string name="Str_hint">Enter a Security Hint</string>
+    <string name="Str_forgot_pwd">Forgot password?</string>
+    <string name="Str_password">Password</string>
+    <string name="Str_login_Btn">Login</string>
+    <string name="securityhint">Security Hint</string>
+    <string name="forgetpassword">Forget Password!</string>
+    <string name="entersecurityhint">Enter your Security Hint here</string>
+    <string name="Str_email_hint">Enter your Email ID here</string>
+    <string name="your_password">Your Password will appear here</string>
+    <string name="register">Register</string>
+    <string name="getpassword">Get Password</string>
+    <string name="cancel">Cancel</string>
+    <string name="save">Save</string>
+    <string name="showpassword">Show Password</string>
+    <string name="enterpassword">Enter Password</string>
+    <string name="add">ADD</string>
+    <string name="accountpassword">ACCOUNT PASSWORD</string>
+    <string name="addphoto">Select Account Picture</string>
+    <string name="delete">DELETE</string>
+    <string name="accountname">Account Name</string>
+    <string name="email">Email</string>
 
     <string-array name="navigation_drawer_items_array">
         <item>New Request</item>

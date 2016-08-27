@@ -21,8 +21,6 @@ import android.widget.Toast;
 public class NewRequestPage extends  Activity implements View.OnTouchListener,
         AdapterView.OnItemClickListener, OnClickListener{
 
-    TextView name;
-    TextView homeButton;
     private EditText category;
     private EditText priority;
     private TextView createBtn;
@@ -33,6 +31,8 @@ public class NewRequestPage extends  Activity implements View.OnTouchListener,
     private ListPopupWindow priorityListPopup;
     private String[] categoryList;
     private String[] priorityList;
+    private String userName;
+    private String userEmail;
     Details setReqDetails;
     DatabaseCreator myDb;
 
@@ -76,9 +76,14 @@ public class NewRequestPage extends  Activity implements View.OnTouchListener,
         createBtn = (TextView) findViewById(R.id.Create);
         createBtn.setOnClickListener(this);
 
+
         title = (EditText) findViewById(R.id.title);
 
         desc = (EditText) findViewById(R.id.desc);
+
+        Bundle bundle = getIntent().getExtras();
+        userName = bundle.getString("NAME");
+        userEmail = bundle.getString("EMAIL");
 
 
     }
@@ -87,7 +92,7 @@ public class NewRequestPage extends  Activity implements View.OnTouchListener,
     public void onClick(View v) {
         Log.i("validateFields: ", String.valueOf(validateFields()));
         if(validateFields()){
-            setReqDetails = new Details("Madhura", "bhatmadhu493@students.itu.edu", category.getText().toString(),
+            setReqDetails = new Details(userName, userEmail, category.getText().toString(),
                     priority.getText().toString(), title.getText().toString(), desc.getText().toString());
             myDb = new DatabaseCreator(this);
             myDb.saveRequest(setReqDetails);
@@ -96,28 +101,32 @@ public class NewRequestPage extends  Activity implements View.OnTouchListener,
 
     }
 
+    /**
+     * Field validation
+     * @return
+     */
     public boolean validateFields(){
         boolean validate = true;
 
-        if(category.getText().toString().equals("") || category.getText().toString() == null){
+        if(category.getText().toString().equals("") || category.getText().toString().length() == 0){
             Log.i("category.getText()",category.getText().toString());
 
-            Toast.makeText(this,"Please select a category", Toast.LENGTH_LONG).show();
+            Toast.makeText(this,"Please select a category", Toast.LENGTH_SHORT).show();
             validate = false;
         }
-        else if(priority.getText().toString().equals("") || priority.getText().toString() == null){
+        else if(priority.getText().toString().equals("") || priority.getText().toString().length() == 0){
 
             Log.i("priority.getText()",priority.getText().toString());
 
-            Toast.makeText(this,"Please set a priority for the request", Toast.LENGTH_LONG).show();
+            Toast.makeText(this,"Please set a priority for the request", Toast.LENGTH_SHORT).show();
             validate = false;
         }
-        else if(title.getText().toString().equals("") || title.getText().toString() == null){
-            Toast.makeText(this,"Title is required", Toast.LENGTH_LONG).show();
+        else if(title.getText().toString().equals("") || title.getText().toString().length() == 0){
+            Toast.makeText(this,"Title is required", Toast.LENGTH_SHORT).show();
             validate = false;
         }
-        else if(desc.getText().toString().equals("") || desc.getText().toString() == null){
-            Toast.makeText(this,"Please write a description of the request", Toast.LENGTH_LONG).show();
+        else if(desc.getText().toString().equals("") || desc.getText().toString().length() == 0){
+            Toast.makeText(this,"Please write a description of the request", Toast.LENGTH_SHORT).show();
             validate = false;
         }
 
@@ -160,17 +169,6 @@ public class NewRequestPage extends  Activity implements View.OnTouchListener,
                 }
                 return true;
             }
-        }
-
-        if (event.getAction() == MotionEvent.ACTION_UP) {
-            if (event.getRawX() <= header.getCompoundDrawables()[DRAWABLE_LEFT].getBounds().width()) {
-                Log.i("I am here", " inside action");
-                if (v.getId() == header.getId()) {
-                    Intent i = new Intent(this, HomePage.class);
-                    startActivity(i);
-                }
-            }
-            return true;
         }
         return false;
     }

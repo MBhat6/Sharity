@@ -43,12 +43,10 @@ public class HomePage extends AppCompatActivity implements OnClickListener {
     String TITLES[] = {"New Request","Edit Profile","History","Home", "Logout"};
     int ICONS[] = {R.drawable.ic_queue,R.drawable.ic_person_outline,R.drawable.ic_archive,R.drawable.ic_home,R.drawable.ic_power};
 
-    //Create a String Resource for the name and email in the header view
-    //And create a int resource for profile picture in the header view
+    String NAME = "";
+    String EMAIL = "";
 
-    String NAME = "Madhura Bhat";
-    String EMAIL = "bhatmadhu493@students.itu.edu";
-    int PROFILE = R.drawable.ic_account_circle;
+    int PROFILE = R.mipmap.sharity_icon;
 
     RecyclerView mRecyclerView;                           // Declare RecyclerView
     RecyclerView.Adapter mAdapter;                        // Declare Adapter For Recycler View
@@ -62,23 +60,12 @@ public class HomePage extends AppCompatActivity implements OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home_tab);
 
-//        name = (TextView) findViewById(R.id.userName);
-//        name.setText("Madhura Bhat"); //Temporary hard coded value
-//
-//        nBtn = (Button) findViewById(R.id.newsBtn);
-//        nBtn.setOnClickListener(this);
-//
-//        ProfBtn = (Button) findViewById(R.id.profileBtn);
-//        ProfBtn.setOnClickListener(this);
-//
-//        ReqBtn = (Button) findViewById(R.id.requestBtn);
-//        ReqBtn.setOnClickListener(this);
-//
-//        HistBtn = (Button) findViewById(R.id.historyBtn);
-//        HistBtn.setOnClickListener(this);
-
         toolbar = (Toolbar) findViewById(R.id.tool_bar); // Attaching the layout to the toolbar object
         setSupportActionBar(toolbar);                   // Setting toolbar as the ActionBar with setSupportActionBar() call
+
+        Bundle bundle = getIntent().getExtras();
+        NAME = bundle.getString("NAME");
+        EMAIL = bundle.getString("EMAIL");
 
 
         mRecyclerView = (RecyclerView) findViewById(R.id.RecyclerView); // Assigning the RecyclerView Object to the xml View
@@ -89,6 +76,7 @@ public class HomePage extends AppCompatActivity implements OnClickListener {
                                                                             // and header view profile picture
 
         mRecyclerView.setAdapter(mAdapter);                              // Setting the adapter to RecyclerView
+
 
         mLayoutManager = new LinearLayoutManager(this);                 // Creating a layout Manager
 

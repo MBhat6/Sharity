@@ -71,7 +71,7 @@
             android:textSize="@dimen/abc_action_bar_content_inset_material"
             android:inputType="none"
             android:hint="@string/Str_Category_txt"
-            android:textColorHint="@color/common_plus_signin_btn_text_dark_disabled"
+            android:textColorHint="@color/sharity_grey"
             android:layout_alignParentTop="true"
             android:layout_alignParentStart="true"
             android:layout_marginTop="70dp" />
@@ -79,24 +79,27 @@
         <EditText
             android:id="@+id/categoryId"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
+            android:layout_height="45dp"
             android:ems="10"
             android:drawableRight="@drawable/arrow_down"
             android:textStyle="normal"
             android:textColor="@android:color/black"
-            android:textColorHint="@android:color/darker_gray"
             android:typeface="normal"
+            android:inputType="text"
             android:enabled="true"
             android:focusable="false"
             android:background="@drawable/field_layout"
             android:theme="@style/MyEditTextTheme"
             android:visibility="visible"
             android:textAlignment="center"
-            android:textSize="@dimen/sharity_dropdown_text_size"
-            android:inputType="none"
+            android:textSize="17sp"
             android:layout_below="@+id/title"
             android:layout_alignParentStart="true"
-            android:layout_alignEnd="@+id/title" />
+            android:layout_alignEnd="@+id/title"
+            android:focusableInTouchMode="true"
+            android:clickable="true"
+            android:contextClickable="true"
+            android:maxLength="20" />
 
         <EditText
             android:layout_width="fill_parent"
@@ -115,30 +118,35 @@
             android:elegantTextHeight="true"
             android:textSize="@dimen/abc_action_bar_content_inset_material"
             android:inputType="none"
-            android:textColorHint="@color/common_plus_signin_btn_text_dark_disabled"
+            android:textColorHint="@color/sharity_grey"
             android:hint="@string/Str_Priority_txt"
             android:layout_marginTop="15dp" />
 
         <EditText
             android:id="@+id/priorityId"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
+            android:layout_height="45dp"
             android:layout_weight="0.01"
             android:ems="10"
             android:drawableRight="@drawable/arrow_down"
             android:textStyle="normal"
             android:textColor="@android:color/black"
             android:textColorHint="@android:color/darker_gray"
+            android:inputType="text"
             android:typeface="normal"
             android:enabled="true"
             android:focusable="false"
+            android:clickable="true"
+            android:contextClickable="true"
             android:background="@drawable/field_layout"
             android:theme="@style/MyEditTextTheme"
             android:visibility="visible"
             android:textAlignment="center"
-            android:textSize="@dimen/sharity_dropdown_text_size"
+            android:textSize="17sp"
             android:layout_below="@+id/linearLayout_1"
-            android:layout_alignEnd="@+id/Create" />
+            android:layout_alignEnd="@+id/Create"
+            android:focusableInTouchMode="true"
+            android:maxLength="10" />
 
         <EditText
             android:layout_width="match_parent"
@@ -156,14 +164,14 @@
             android:elegantTextHeight="true"
             android:textSize="@dimen/abc_action_bar_content_inset_material"
             android:inputType="none"
-            android:textColorHint="@color/common_plus_signin_btn_text_dark_disabled"
+            android:textColorHint="@color/sharity_grey"
             android:hint="@string/Str_Title_txt"
             android:layout_marginTop="15dp" />
 
         <EditText
             android:id="@+id/title"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
+            android:layout_height="45dp"
             android:ems="10"
             android:textStyle="normal"
             android:textColor="@android:color/black"
@@ -175,10 +183,11 @@
             android:theme="@style/MyEditTextTheme"
             android:visibility="visible"
             android:textAlignment="textStart"
-            android:textSize="@dimen/sharity_dropdown_text_size"
-            android:inputType="text"
+            android:textSize="17sp"
+            android:inputType="textCapSentences|text"
             android:layout_below="@+id/priorityId"
-            android:layout_alignEnd="@+id/Create" />
+            android:layout_alignEnd="@+id/Create"
+            android:maxLength="50" />
 
         <EditText
             android:layout_width="fill_parent"
@@ -196,25 +205,27 @@
             android:elegantTextHeight="true"
             android:textSize="@dimen/abc_action_bar_content_inset_material"
             android:inputType="none"
-            android:textColorHint="@color/common_plus_signin_btn_text_dark_disabled"
+            android:textColorHint="@color/sharity_grey"
             android:hint="@string/Str_Desc_txt"
-            android:layout_marginTop="50dp" />
+            android:layout_marginTop="45dp" />
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="150dp"
-            android:inputType="textMultiLine"
+            android:inputType="textCapSentences|textMultiLine"
             android:ems="10"
             android:id="@+id/desc"
             android:background="@drawable/field_layout"
             android:enabled="true"
             android:textColor="@android:color/black"
             android:textColorHint="@android:color/darker_gray"
-            android:textSize="@dimen/sharity_dropdown_text_size"
-            android:textAlignment="viewStart"
+            android:textSize="17sp"
+            android:textAlignment="gravity"
+            android:gravity="top"
             android:typeface="normal"
             android:visibility="visible"
-            android:layout_alignParentStart="true"/>
+            android:layout_alignParentStart="true"
+            android:maxLength="1200" />
     </LinearLayout>
 
     <Button

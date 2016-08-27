@@ -14,6 +14,7 @@ import android.widget.EditText;
 import android.widget.ListPopupWindow;
 import android.widget.TextView;
 import android.view.View.OnClickListener;
+import android.widget.Toast;
 
 /**
  * Created by Madhura on 8/15/2016.
@@ -22,8 +23,15 @@ public class SignUpDetailsPage  extends Activity implements OnTouchListener,
         OnItemClickListener,  OnClickListener{
 
     private EditText program;
+    private EditText name;
+    private EditText topic;
+    private EditText expertise;
     private String[] courseList;
+    String strEmail;
+    String strPwd;
+    String strHint;
     private ListPopupWindow courseListPopup;
+    DatabaseCreator dao;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,6 +40,10 @@ public class SignUpDetailsPage  extends Activity implements OnTouchListener,
 
         TextView signUpBtn = (TextView) findViewById(R.id.save_profile);
         signUpBtn.setOnClickListener(this);
+
+        name = (EditText) findViewById(R.id.first_name);
+        topic = (EditText) findViewById(R.id.SignUp_interest);
+        expertise = (EditText) findViewById(R.id.SignUp_expertise);
 
 
         program = (EditText) findViewById(R.id.signUp_course);
@@ -46,17 +58,60 @@ public class SignUpDetailsPage  extends Activity implements OnTouchListener,
         courseListPopup.setAnchorView(program);
         courseListPopup.setModal(true);
         courseListPopup.setOnItemClickListener(this);
-
-
     }
 
 
     @Override
     public void onClick(View v) {
-        Log.i("clicks","You are enrolled : signing up");
-        Intent i = new Intent(SignUpDetailsPage.this, HomePage.class);
-        startActivity(i);
 
+        if(validateFields()){
+
+            Bundle bundle = getIntent().getExtras();
+
+            strEmail = bundle.getString("email");
+            strPwd = bundle.getString("pwd");
+            strHint = bundle.getString("hint");
+
+            Log.i("clicks","Enrolling : signing up");
+
+            Details details = new Details(name.getText().toString(), strEmail, program.getText().toString(), expertise.getText().toString(),
+                                                topic.getText().toString(), strHint, strPwd);
+
+            dao = new DatabaseCreator(this);
+            dao.insertContact(details);
+        }
+
+    }
+
+    /**
+     * Field validation
+     * @return
+     */
+    public boolean validateFields(){
+        boolean validate = true;
+
+        if(name.getText().toString().equals("") || name.getText().toString().length() == 0){
+
+            Toast.makeText(this,"Name is required", Toast.LENGTH_SHORT).show();
+            validate = false;
+        }
+        else if(topic.getText().toString().equals("") || topic.getText().toString().length() == 0){
+
+            Toast.makeText(this,"Please mention your Topic of Interest", Toast.LENGTH_SHORT).show();
+            validate = false;
+        }
+        else if(expertise.getText().toString().equals("") || expertise.getText().toString().length() == 0){
+
+            Toast.makeText(this,"Please mention your Expertise", Toast.LENGTH_SHORT).show();
+            validate = false;
+        }
+        else if(program.getText().toString().equals("") || program.getText().toString().length() == 0){
+
+            Toast.makeText(this,"Please select your Current Program", Toast.LENGTH_SHORT).show();
+            validate = false;
+        }
+
+        return validate;
     }
 
     @Override

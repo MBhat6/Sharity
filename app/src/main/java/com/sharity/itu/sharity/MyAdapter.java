@@ -4,6 +4,7 @@ package com.sharity.itu.sharity;
 import android.app.Application;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -14,7 +15,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 /**
- * Created by hp1 on 28-12-2014.
+ * Created by Madhura on 8/23/2016.
  */
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
 
@@ -25,9 +26,9 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     private String mNavTitles[]; // String Array to store the passed titles Value from MainActivity.java
     private int mIcons[];       // Int Array to store the passed icons resource value from MainActivity.java
 
-    private String name;        //String Resource for header View Name
+    public static String name;        //String Resource for header View Name
     private int profile;        //int Resource for header view profile picture
-    private String email;       //String Resource for header view email
+    private static String email;       //String Resource for header view email
     Context context;
 
 
@@ -41,8 +42,10 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
         ImageView imageView;
         ImageView profile;
         TextView Name;
-        TextView email;
+        TextView emailId;
         Context contxt;
+
+
 
 
         public ViewHolder(View itemView,int ViewType,Context c) {                 // Creating ViewHolder Constructor with View and viewType As a parameter
@@ -50,6 +53,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
             contxt = c;
             itemView.setClickable(true);
             itemView.setOnClickListener(this);
+
             // Here we set the appropriate view according to the view type as passed when the holder object is created
 
             if(ViewType == TYPE_ITEM) {
@@ -59,7 +63,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
             }
             else{
                 Name = (TextView) itemView.findViewById(R.id.name);         // Creating Text View object from header.xml for name
-                email = (TextView) itemView.findViewById(R.id.email);       // Creating Text View object from header.xml for email
+                emailId = (TextView) itemView.findViewById(R.id.email);       // Creating Text View object from header.xml for email
                 profile = (ImageView) itemView.findViewById(R.id.circleView);// Creating Image view object from header.xml for profile pic
                 Holderid = 0;                                                // Setting holder id = 0 as the object being populated are of type header view
             }
@@ -67,27 +71,64 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
         @Override
         public void onClick(View v) {
 
-            //Toast.makeText(contxt,"The Item Clicked is: "+getPosition(),Toast.LENGTH_SHORT).show();
+            String dbName = name;
+            String dbEmail = email;
 
             if(+getPosition() == 1){
+
                 Log.i("clicks","You clicked New Request");
                 Intent i = new Intent(contxt, NewRequestPage.class);
+
+                Bundle detailBundle = new Bundle();
+
+                detailBundle.putString("EMAIL", dbEmail);
+                detailBundle.putString("NAME", dbName);
+
+                i.putExtras(detailBundle);
                 contxt.startActivity(i);
             }
             else if(+getPosition() == 2) {
                 Log.i("clicks", "You clicked My Profile");
                 Intent i = new Intent(contxt, ProfilePage.class);
+
+                Bundle detailBundle = new Bundle();
+
+                detailBundle.putString("EMAIL", dbEmail);
+                detailBundle.putString("NAME", dbName);
+
+                i.putExtras(detailBundle);
                 contxt.startActivity(i);
             }
             else if(+getPosition() == 3) {
                 Log.i("clicks", "You clicked My History");
                 Intent i = new Intent(contxt, MyHistoryPage.class);
+
+                Bundle detailBundle = new Bundle();
+
+                detailBundle.putString("EMAIL", dbEmail);
+                detailBundle.putString("NAME", dbName);
+
+                i.putExtras(detailBundle);
                 contxt.startActivity(i);
             }
             else if(+getPosition() == 4) {
                 Log.i("clicks", "You clicked Home");
                 Intent i = new Intent(contxt, HomePage.class);
+
+                Bundle detailBundle = new Bundle();
+
+                detailBundle.putString("EMAIL", dbEmail);
+                detailBundle.putString("NAME", dbName);
+
+                i.putExtras(detailBundle);
                 contxt.startActivity(i);
+            }
+            else if(+getPosition() == 5) {
+                Log.i("clicks", "You clicked Logout");
+                Intent i = new Intent(contxt, MainActivity.class);
+                contxt.startActivity(i);
+
+                Toast.makeText(contxt,"Logged out successfully",Toast.LENGTH_SHORT).show();
             }
         }
     }
@@ -151,7 +192,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
 
             holder.profile.setImageResource(profile);           // Similarly we set the resources for header view
             holder.Name.setText(name);
-            holder.email.setText(email);
+            holder.emailId.setText(email);
         }
     }
 

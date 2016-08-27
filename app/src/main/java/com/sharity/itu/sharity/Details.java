@@ -17,6 +17,7 @@ public class Details {
     private String priority;
     private String title;
     private String desc;
+    private  String hint;
 
 
     public Details(){
@@ -41,13 +42,15 @@ public class Details {
      * @param expertise
      * @param interest
           */
-    public Details(String name, String email, String course, String expertise, String interest){
+    public Details(String name, String email, String course, String expertise, String interest, String hint, String password){
 
         this.name = name;
         this.email = email;
         this.course = course;
         this.expertise = expertise;
         this.interest = interest;
+        this.hint = hint;
+        this.password = password;
 
     }
 
@@ -244,5 +247,22 @@ public class Details {
      */
     public void setIndicator(String indicator) {
         this.indicator = indicator;
+    }
+
+    /**
+     * getter for hint
+     * @return hint
+     */
+
+    public String getHint() {
+        return hint;
+    }
+
+    /**
+     * setter for hint
+     * @param hint
+     */
+    public void setHint(String hint) {
+        this.hint = hint;
     }
 }

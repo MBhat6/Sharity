@@ -13,6 +13,8 @@ import android.widget.EditText;
 import android.widget.ListPopupWindow;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
 /**
  * Created by Madhura on 8/16/2016.
  */
@@ -20,13 +22,28 @@ public class ProfilePage extends  Activity implements View.OnTouchListener,
         AdapterView.OnItemClickListener, OnClickListener{
 
     TextView homeButton;
+    private EditText userName;
+    private EditText userEmail;
+    private EditText interest;
+    private EditText expertise;
     private EditText program;
     private String[] courseList;
+    private String dbName;
+    private  String dbEmail;
     private ListPopupWindow courseListPopup;
+    DatabaseCreator dao;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.profile_page);
+
+        dao = new DatabaseCreator(this);
+
+        userName = (EditText) findViewById(R.id.name);
+
+        interest = (EditText) findViewById(R.id.interest);
+
+        expertise = (EditText) findViewById(R.id.expertise);
 
         program = (EditText) findViewById(R.id.course);
         program.setOnTouchListener(this);
@@ -40,6 +57,21 @@ public class ProfilePage extends  Activity implements View.OnTouchListener,
         courseListPopup.setAnchorView(program);
         courseListPopup.setModal(true);
         courseListPopup.setOnItemClickListener(this);
+
+
+        Bundle bundle = getIntent().getExtras();
+        dbName = bundle.getString("NAME");
+        dbEmail = bundle.getString("EMAIL");
+
+        ArrayList details = dao.getProfileDetails(dbName, dbEmail);
+
+        if(details != null) {
+            userName.setText(dbName);
+            program.setText(details.get(0).toString());
+            interest.setText(details.get(1).toString());
+            expertise.setText(details.get(2).toString());
+        }
+
     }
 
 
