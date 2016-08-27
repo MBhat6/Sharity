@@ -72,7 +72,6 @@ public class Details {
         this.desc = desc;
 
     }
-
     /**
      * Getter method for email
      * @return
