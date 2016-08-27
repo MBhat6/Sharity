@@ -21,11 +21,12 @@ import java.util.List;
  */
 public class DatabaseCreator extends SQLiteOpenHelper {
 
-    public static final int OLD_VERSION = 3;
-    public static final int NEW_VERSION = 4;
+    public static final int OLD_VERSION = 4;
+    public static final int NEW_VERSION = 5;
 
     public static final String DATABSE_NAME = "SHARITY.db";
 
+    public static final String REQUEST_ID = "REQUEST_ID";
     public static final String USER_INFO_TABLE = "USER_INFO";
     public static final String USER_NAME = "USER_NAME";
     public static final String PASSWORD = "PASSWORD";
@@ -59,12 +60,15 @@ public class DatabaseCreator extends SQLiteOpenHelper {
         contextDb = context;
         SQLiteDatabase db = this.getWritableDatabase();
 
+        //onUpgrade(db, OLD_VERSION, NEW_VERSION);
+
     }
+
 
     @Override
     public void onCreate(SQLiteDatabase db) {
 
-        db.execSQL("CREATE TABLE " + USER_INFO_TABLE + "(" + USER_NAME + " VARCHAR(60) NOT NULL, "
+        db.execSQL("CREATE TABLE " + USER_INFO_TABLE + "("+ USER_NAME + " VARCHAR(60) NOT NULL, "
                                                           + PASSWORD + " VARCHAR(50) NOT NULL, "
                                                           + EMAIL_ID + " VARCHAR(100) PRIMARY KEY NOT NULL, "
                                                           + CURRENT_PROG + " VARCHAR(100) NOT NULL, "
@@ -72,7 +76,8 @@ public class DatabaseCreator extends SQLiteOpenHelper {
                                                           + EXPERTISE + " VARCHAR(200) NOT NULL, "
                                                           + HINT + " VARCHAR(22) NOT NULL ) ");
 
-        db.execSQL("CREATE TABLE " + REQUEST_TABLE + "("    + USER_NAME + " VARCHAR(60) NOT NULL, "
+        db.execSQL("CREATE TABLE " + REQUEST_TABLE + "("    + REQUEST_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
+                                                            + USER_NAME + " VARCHAR(60) NOT NULL, "
                                                             + EMAIL_ID + " VARCHAR(100) NOT NULL, "
                                                             + CATEGORY + " VARCHAR(50) NOT NULL, "
                                                             + PRIORITY + " VARCHAR(10) NOT NULL, "
