@@ -147,6 +147,7 @@ public class DatabaseCreator extends SQLiteOpenHelper {
 
     }
 
+
     /**
      * To sign up a new user
      * @param details
