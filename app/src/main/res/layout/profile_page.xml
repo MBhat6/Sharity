@@ -66,7 +66,7 @@
             android:textColor="@android:color/white"
             android:contextClickable="false"
             android:enabled="true"
-            android:focusable="true"
+            android:focusable="false"
             android:clickable="true"
             android:elegantTextHeight="true"
             android:textStyle="normal|bold"
