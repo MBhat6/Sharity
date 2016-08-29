@@ -56,7 +56,6 @@ public class NewRequestPage extends  Activity implements View.OnTouchListener,
         catListPopup.setModal(true);
         catListPopup.setOnItemClickListener(this);
 
-
         /**
          * Loading Priority dropdown
          */
@@ -84,21 +83,17 @@ public class NewRequestPage extends  Activity implements View.OnTouchListener,
         Bundle bundle = getIntent().getExtras();
         userName = bundle.getString("NAME");
         userEmail = bundle.getString("EMAIL");
-
-
     }
 
     @Override
     public void onClick(View v) {
         Log.i("validateFields: ", String.valueOf(validateFields()));
         if(validateFields()){
-            setReqDetails = new Details(userName, userEmail, category.getText().toString(),
-                    priority.getText().toString(), title.getText().toString(), desc.getText().toString());
+            setReqDetails = new Details(userName.trim(), userEmail.trim(), category.getText().toString(),
+                    priority.getText().toString(), title.getText().toString().trim(), desc.getText().toString().trim());
             myDb = new DatabaseCreator(this);
             myDb.saveRequest(setReqDetails);
         }
-
-
     }
 
     /**
@@ -108,24 +103,24 @@ public class NewRequestPage extends  Activity implements View.OnTouchListener,
     public boolean validateFields(){
         boolean validate = true;
 
-        if(category.getText().toString().equals("") || category.getText().toString().length() == 0){
+        if(category.getText().toString().trim().equals("") || category.getText().toString().trim().length() == 0){
             Log.i("category.getText()",category.getText().toString());
 
             Toast.makeText(this,"Please select a category", Toast.LENGTH_SHORT).show();
             validate = false;
         }
-        else if(priority.getText().toString().equals("") || priority.getText().toString().length() == 0){
+        else if(priority.getText().toString().trim().equals("") || priority.getText().toString().trim().length() == 0){
 
             Log.i("priority.getText()",priority.getText().toString());
 
             Toast.makeText(this,"Please set a priority for the request", Toast.LENGTH_SHORT).show();
             validate = false;
         }
-        else if(title.getText().toString().equals("") || title.getText().toString().length() == 0){
+        else if(title.getText().toString().trim().equals("") || title.getText().toString().trim().length() == 0){
             Toast.makeText(this,"Title is required", Toast.LENGTH_SHORT).show();
             validate = false;
         }
-        else if(desc.getText().toString().equals("") || desc.getText().toString().length() == 0){
+        else if(desc.getText().toString().trim().equals("") || desc.getText().toString().trim().length() == 0){
             Toast.makeText(this,"Please write a description of the request", Toast.LENGTH_SHORT).show();
             validate = false;
         }
