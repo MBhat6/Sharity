@@ -27,9 +27,9 @@ public class SignUpDetailsPage  extends Activity implements OnTouchListener,
     private EditText topic;
     private EditText expertise;
     private String[] courseList;
-    String strEmail;
-    String strPwd;
-    String strHint;
+    private String strEmail;
+    private String strPwd;
+    private String strHint;
     private ListPopupWindow courseListPopup;
     DatabaseCreator dao;
 
@@ -74,8 +74,8 @@ public class SignUpDetailsPage  extends Activity implements OnTouchListener,
 
             Log.i("clicks","Enrolling : signing up");
 
-            Details details = new Details(name.getText().toString(), strEmail, program.getText().toString(), expertise.getText().toString(),
-                                                topic.getText().toString(), strHint, strPwd);
+            Details details = new Details(name.getText().toString().trim(), strEmail, program.getText().toString().trim(), expertise.getText().toString().trim(),
+                                                topic.getText().toString().trim(), strHint, strPwd);
 
             dao = new DatabaseCreator(this);
             dao.insertContact(details);
@@ -90,22 +90,22 @@ public class SignUpDetailsPage  extends Activity implements OnTouchListener,
     public boolean validateFields(){
         boolean validate = true;
 
-        if(name.getText().toString().equals("") || name.getText().toString().length() == 0){
+        if(name.getText().toString().trim().equals("") || name.getText().toString().trim().length() == 0){
 
             Toast.makeText(this,"Name is required", Toast.LENGTH_SHORT).show();
             validate = false;
         }
-        else if(topic.getText().toString().equals("") || topic.getText().toString().length() == 0){
+        else if(topic.getText().toString().trim().equals("") || topic.getText().toString().trim().length() == 0){
 
             Toast.makeText(this,"Please mention your Topic of Interest", Toast.LENGTH_SHORT).show();
             validate = false;
         }
-        else if(expertise.getText().toString().equals("") || expertise.getText().toString().length() == 0){
+        else if(expertise.getText().toString().trim().equals("") || expertise.getText().toString().trim().length() == 0){
 
             Toast.makeText(this,"Please mention your Expertise", Toast.LENGTH_SHORT).show();
             validate = false;
         }
-        else if(program.getText().toString().equals("") || program.getText().toString().length() == 0){
+        else if(program.getText().toString().trim().equals("") || program.getText().toString().trim().length() == 0){
 
             Toast.makeText(this,"Please select your Current Program", Toast.LENGTH_SHORT).show();
             validate = false;
