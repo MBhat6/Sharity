@@ -183,7 +183,7 @@ public class CustomExpandableListAdapter extends BaseExpandableListAdapter imple
 
         arrayList = dao.getComment(reqId);
 
-        adapter = new ArrayAdapter<>(context, android.R.layout.simple_spinner_item, arrayList);
+        adapter = new ArrayAdapter<>(context, R.layout.comment_layout, arrayList);
         list.setAdapter(adapter);
 
         reply.setOnClickListener(new OnClickListener() {
@@ -200,7 +200,7 @@ public class CustomExpandableListAdapter extends BaseExpandableListAdapter imple
                         comment.setText("");
                         ArrayList items = dao.getComment(reqId);
 
-                        adapter = new ArrayAdapter<>(context, android.R.layout.simple_spinner_item, items);
+                        adapter = new ArrayAdapter<>(context, R.layout.comment_layout, items);
                         list.setAdapter(adapter);
                         Toast.makeText(context,"Thank you for your comments", Toast.LENGTH_SHORT).show();
                     }

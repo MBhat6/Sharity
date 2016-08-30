@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="70dp"
+    android:id="@+id/comment_view"
+    android:gravity="top|left"
+    android:textAlignment="gravity"
+    android:textSize="14dp"
+    android:textStyle="normal"
+    android:visibility="visible"
+    android:background="@drawable/comment_box_layout"
+    android:scrollIndicators="left"
+    android:inputType="textCapSentences|textMultiLine"
+    android:linksClickable="false"
+    android:textColor="@color/sharityBlack" />

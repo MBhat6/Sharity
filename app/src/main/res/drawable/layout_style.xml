@@ -3,7 +3,7 @@
     <solid android:color="@android:color/white"/>
 
     <stroke android:width="3dp"
-        android:color="@color/hint_foreground_material_light"
+        android:color="@android:color/white"
         />
 
     <padding android:left="5dp"
@@ -12,6 +12,6 @@
         android:bottom="5dp"
         />
 
-    <corners android:bottomRightRadius="1dip" android:bottomLeftRadius="1dip"
-        android:topLeftRadius="1dip" android:topRightRadius="1dip"/>
+    <corners android:bottomRightRadius="3dip" android:bottomLeftRadius="3dip"
+        android:topLeftRadius="3dip" android:topRightRadius="3dip"/>
 </shape>
