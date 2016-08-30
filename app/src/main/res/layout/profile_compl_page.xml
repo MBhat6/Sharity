@@ -21,7 +21,7 @@
         android:id="@+id/linearLayout2">
 
         <EditText
-        android:layout_width="295dp"
+        android:layout_width="fill_parent"
         android:layout_height="40dp"
         android:text="@string/profile_com_text"
         android:id="@+id/com_prof_header"
@@ -36,7 +36,7 @@
         android:textAllCaps="false"
         android:visibility="visible"
         android:textSize="@dimen/sharity_home_text_font"
-        android:textAlignment="textStart"
+        android:textAlignment="center"
         android:layout_marginLeft="40dp"
         android:layout_centerHorizontal="true" />
 

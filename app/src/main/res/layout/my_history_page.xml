@@ -1,0 +1,51 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/homePage"
+    tools:context="com.sharity.itu.sharity.MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:background="@color/colorPrimaryDark"
+        android:id="@+id/linearLayout_h">
+
+        <EditText
+            android:layout_width="130dp"
+            android:layout_height="30dp"
+            android:id="@+id/HistoryPageTxt"
+            android:typeface="normal"
+            android:background="@color/colorPrimaryDark"
+            android:enabled="false"
+            android:focusable="false"
+            android:clickable="true"
+            android:textStyle="normal|bold"
+            android:focusableInTouchMode="true"
+            android:textAllCaps="false"
+            android:visibility="visible"
+            android:textSize="16sp"
+            android:inputType="none"
+            android:textAlignment="gravity"
+            android:layout_marginTop="12dp"
+            android:layout_marginStart="8dp"
+            android:hint="My History"
+            android:textColorHint="@android:color/white"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true"
+            android:gravity="left|center"
+            android:paddingLeft="13dp" />
+
+    </LinearLayout>
+
+    <ExpandableListView
+        android:id="@+id/expandableListHistory"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_marginTop="50dp"
+        android:indicatorLeft="?android:attr/expandableListPreferredItemIndicatorLeft"
+        android:divider="@android:color/darker_gray"
+        android:dividerHeight="0.5dp" />
+
+</RelativeLayout>

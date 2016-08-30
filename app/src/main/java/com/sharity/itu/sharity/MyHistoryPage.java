@@ -6,32 +6,45 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.ExpandableListAdapter;
+import android.widget.ExpandableListView;
 import android.widget.TextView;
+
+import java.util.ArrayList;
 
 /**
  * Created by Madhura on 8/16/2016.
  */
-public class MyHistoryPage extends  Activity implements OnClickListener{
+public class MyHistoryPage extends  Activity {
 
     TextView name;
-    TextView homeButton;
+    String userName;
+    String email;
+
+    ExpandableListView expandableListView;
+    ExpandableListAdapter expandableListAdapter;
+
+    ArrayList dataList;
+
+    DatabaseCreator dao;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.history_page);
+        setContentView(R.layout.my_history_page);
 
-//        name = (TextView) findViewById(R.id.userName);
-//        name.setText("Priyanka Gopalakrishna"); //Temporary hard coded value
-//
-//        homeButton = (TextView) findViewById(R.id.homeBtn);
-//        homeButton.setOnClickListener(this);
+        Bundle bundle = getIntent().getExtras();
+        userName = bundle.getString("NAME");
+        email = bundle.getString("EMAIL");
+
+        expandableListView = (ExpandableListView) findViewById(R.id.expandableListHistory);
+
+        dataList = new ArrayList();
+        dao = new DatabaseCreator(this);
+        dataList = dao.fetchRowsForHistory(userName, email);
+
+        expandableListAdapter = new CustomExpandableListHistory(this, dataList, userName);
+        expandableListView.setAdapter(expandableListAdapter);
+
     }
 
-    @Override
-    public void onClick(View v) {
-        Log.i("clicks","You clicked home button in My Request");
-        Intent i = new Intent(MyHistoryPage.this, HomePage.class);
-        startActivity(i);
-
-    }
 }

@@ -113,7 +113,7 @@
     <string name="Str_ReqPage_txt">New Request</string>
     <string name="Str_sign_up_Btn">Sign Up</string>
     <string name="Str_sign_up_header">Sign Up for Sharity</string>
-    <string name="profile_com_text">Please complete the Profile</string>
+    <string name="profile_com_text">Mandatory profile completion</string>
     <string name="update_profile">Update credentials</string>
     <string name="Str_email_text">E-mail</string>
     <string name="Str_pwd_text">Set Password</string>

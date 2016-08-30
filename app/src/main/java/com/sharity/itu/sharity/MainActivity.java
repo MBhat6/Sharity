@@ -9,17 +9,14 @@ import android.util.Log;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ListPopupWindow;
 import android.view.View;
-import android.view.View.OnTouchListener;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.TextView;
 import android.view.View.OnClickListener;
 import android.widget.Toast;
 
 import java.util.ArrayList;
-import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 
 public class MainActivity extends Activity implements OnClickListener
@@ -32,6 +29,7 @@ public class MainActivity extends Activity implements OnClickListener
     private TextView forgotBtn;
     private String emailStr;
     private String pwd;
+
     DatabaseCreator helper;
 
 
@@ -39,6 +37,8 @@ public class MainActivity extends Activity implements OnClickListener
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login_page);
+        helper = new DatabaseCreator(this);
+
         helper = new DatabaseCreator(this);
 
         email = (EditText) findViewById(R.id.email_id) ;
@@ -64,7 +64,7 @@ public class MainActivity extends Activity implements OnClickListener
 
            if(validateFields()){
                pwd = password.getText().toString();
-               emailStr = email.getText().toString();
+               emailStr = email.getText().toString().trim();
 
                Log.i("Email  ", emailStr);
                Log.i("pwd  " , pwd);
@@ -119,7 +119,7 @@ public class MainActivity extends Activity implements OnClickListener
            final  TextView getpass =(TextView)dialog.findViewById(R.id.get_pwd);
            final  TextView email = (TextView)dialog.findViewById(R.id.email_hint) ;
 
-           Button ok =(Button)dialog.findViewById(R.id.getpassword_btn);
+           Button ok =(Button)dialog.findViewById(R.id.replyBtn);
            Button cancel =(Button)dialog.findViewById(R.id.cancel_btn);
 
            ok.setOnClickListener(new View.OnClickListener() {
@@ -170,20 +170,51 @@ public class MainActivity extends Activity implements OnClickListener
 
         boolean validate = true;
 
-        if(email.getText().toString().equals("") || email.getText().toString().length() == 0){
+        String validemail= "[a-zA-Z0-9\\+\\.\\_\\%\\-\\+]{1,256}" +
+
+                "\\@" +
+
+                "[a-zA-Z0-9][a-zA-Z0-9\\-]{0,64}" +
+
+                "(" +
+
+                "\\." +
+
+                "[a-zA-Z0-9][a-zA-Z0-9\\-]{0,25}" +
+
+                ")+";
+
+        Matcher m = Pattern.compile(validemail).matcher(email.getText().toString());
+
+        if(email.getText().toString().trim().equals("") || email.getText().toString().trim().length() == 0){
 
             Toast.makeText(this,"Please enter your ITU Email ID", Toast.LENGTH_SHORT).show();
             validate = false;
         }
-
-        if(password.getText().toString().equals("") || password.getText().toString().length() == 0){
+        else if(!m.find()){
+            Toast.makeText(this,"Your Email ID is invalid", Toast.LENGTH_SHORT).show();
+            validate = false;
+        }
+        else if(password.getText().toString().equals("") || password.getText().toString().length() == 0){
 
             Toast.makeText(this,"Please enter your Password", Toast.LENGTH_SHORT).show();
             validate = false;
         }
+        else if (email.getText().toString() != null || email.getText().toString() != "") {
 
+            String emailValidate[] = email.getText().toString().split("@");
 
+            String trailerStr = emailValidate[1].toString();
+            String compareStr = "students.itu.edu";
 
+            Log.i(" Email trailer : ", trailerStr);
+
+            if (!trailerStr.trim().contentEquals(compareStr.trim())) {
+
+                Toast.makeText(this, "Please enter your ITU student email ID", Toast.LENGTH_SHORT).show();
+                validate = false;
+            }
+        }
         return validate;
     }
 }

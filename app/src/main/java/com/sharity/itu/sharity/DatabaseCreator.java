@@ -14,7 +14,6 @@ import android.widget.Toast;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 
 /**
@@ -22,8 +21,8 @@ import java.util.List;
  */
 public class DatabaseCreator extends SQLiteOpenHelper {
 
-    public static final int OLD_VERSION = 4;
-    public static final int NEW_VERSION = 5;
+    public static final int OLD_VERSION = 5;
+    public static final int NEW_VERSION = 6;
 
     public static final String DATABSE_NAME = "SHARITY.db";
 
@@ -47,6 +46,10 @@ public class DatabaseCreator extends SQLiteOpenHelper {
     public static final String REPLY_USER_NAME = "USER_NAME_RP";
     public static final String REPLY_DATE = "REPLY_DT";
     public static final String HINT = "HINT";
+
+    public static final String COMMENTS_TABLE = "COMMENTS_TABLE";
+
+
     Context contextDb;
 
     Date curDate = new Date();
@@ -87,6 +90,13 @@ public class DatabaseCreator extends SQLiteOpenHelper {
                                                             + COMMENTS + " VARCHAR(5000), "
                                                             + REPLY_USER_NAME + " VARCHAR(100), "
                                                             + REPLY_DATE + " DATE ) ");
+
+
+        db.execSQL("CREATE TABLE " + COMMENTS_TABLE + "(" + REQUEST_ID + " INTEGER, "
+                                                        + CREATE_DATE + " DATE NOT NULL, "
+                                                        + COMMENTS + " VARCHAR(5000), "
+                                                        + REPLY_USER_NAME + " VARCHAR(100), "
+                                                        + REPLY_DATE + " DATE ) ");
     }
 
 
@@ -268,6 +278,7 @@ public class DatabaseCreator extends SQLiteOpenHelper {
             if (check == 0) {
                 Toast.makeText(contextDb, "You are not a member yet. Please Sign Up", Toast.LENGTH_SHORT).show();
             }
+            db.close();
 
         } catch (Exception e) {
 
@@ -291,12 +302,12 @@ public class DatabaseCreator extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getReadableDatabase();
 
         Cursor c = db.rawQuery("SELECT * FROM " + USER_INFO_TABLE + " WHERE HINT = '" + hint + "' AND EMAIL_ID = '" + email + "'", null);
-
         if (c.moveToFirst()) {
             do {
                 str = c.getString(c.getColumnIndex("PASSWORD"));
             } while (c.moveToNext());
         }
+        db.close();
         return str;
     }
 
@@ -313,7 +324,6 @@ public class DatabaseCreator extends SQLiteOpenHelper {
 
         Cursor row = db.rawQuery("SELECT  CURRENT_PROG,  " + INTR_TOPICS + ",  EXPERTISE FROM " + USER_INFO_TABLE + " " +
                 "WHERE USER_NAME  = '" + name + "' AND EMAIL_ID = '" + email + "'", null);
-
         if (row.moveToFirst()) {
             do {
                 list.add(row.getString(0));
@@ -321,6 +331,7 @@ public class DatabaseCreator extends SQLiteOpenHelper {
                 list.add(row.getString(2));
             } while (row.moveToNext());
         }
+        db.close();
         return list;
     }
 
@@ -367,8 +378,6 @@ public class DatabaseCreator extends SQLiteOpenHelper {
 
             long rowInserted = db.update(USER_INFO_TABLE, values, " EMAIL_ID =  '"+ saveObj.getEmail() +"' ", null);
 
-            db.close();
-
             if(rowInserted != -1){
                 Log.i("clicks", "Success in updating Profile");
 
@@ -389,6 +398,7 @@ public class DatabaseCreator extends SQLiteOpenHelper {
                 Log.i("clicks", "Error in updating the Profile");
                 Toast.makeText(contextDb,"Profile update was not successful", Toast.LENGTH_SHORT).show();
             }
+            db.close();
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -397,22 +407,244 @@ public class DatabaseCreator extends SQLiteOpenHelper {
         }
     }
 
-    public List fetchRows(){
+    /**
+     * fetch the request table rows for which priority is high
+     *
+     * @return ArrayList
+     */
+    public ArrayList fetchRowsForHighPriority(){
 
         SQLiteDatabase db = this.getReadableDatabase();
-        List highList = null;
-
+        ArrayList forHighList = new ArrayList();
         Cursor row = db.rawQuery("SELECT  REQUEST_ID, TITLE, USER_NAME,  CATEGORY,  DESCRIPTION, " + CREATE_DATE + " FROM  " + REQUEST_TABLE + " WHERE  PRIORITY = 'High' ", null);
 
         if (row.moveToFirst()) {
             do {
+                StringBuffer sbf = new StringBuffer();
+
+                sbf.append(row.getString(row.getColumnIndex("TITLE")));
+                sbf.append(",,");
+                sbf.append(row.getString(row.getColumnIndex("REQUEST_ID")));
+                sbf.append(",");
+                sbf.append(row.getString(row.getColumnIndex("USER_NAME")));
+                sbf.append(",");
+                sbf.append(row.getString(row.getColumnIndex("CATEGORY")));
+                sbf.append(",");
+                sbf.append(row.getString(row.getColumnIndex("DESCRIPTION")));
+                sbf.append(",");
+                sbf.append(row.getString(row.getColumnIndex("CREATE_DT")));
+
+                forHighList.add(sbf);
+                Log.i("The string buffer: ", sbf.toString());
+
+            } while (row.moveToNext());
+
+        }
+        db.close();
+        Log.i("The H list after loop: ", forHighList.toString());
+        return forHighList;
+    }
+
+    /**
+     * fetch the request table rows for which priority is medium
+     *
+     * @return ArrayList
+     */
+    public ArrayList fetchRowsForMediumPriority(){
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        ArrayList forMedList = new ArrayList();
+        Cursor row = db.rawQuery("SELECT  REQUEST_ID, TITLE, USER_NAME,  CATEGORY,  DESCRIPTION, " + CREATE_DATE + " FROM  " + REQUEST_TABLE + " WHERE  PRIORITY = 'Medium' ", null);
+
+        if (row.moveToFirst()) {
+            do {
+                StringBuffer sbf = new StringBuffer();
+
+                sbf.append(row.getString(row.getColumnIndex("TITLE")));
+                sbf.append(",,");
+                sbf.append(row.getString(row.getColumnIndex("REQUEST_ID")));
+                sbf.append(",");
+                sbf.append(row.getString(row.getColumnIndex("USER_NAME")));
+                sbf.append(",");
+                sbf.append(row.getString(row.getColumnIndex("CATEGORY")));
+                sbf.append(",");
+                sbf.append(row.getString(row.getColumnIndex("DESCRIPTION")));
+                sbf.append(",");
+                sbf.append(row.getString(row.getColumnIndex("CREATE_DT")));
+
+                forMedList.add(sbf);
+                Log.i("The string buffer: ", sbf.toString());
+
+            } while (row.moveToNext());
+
+        }
+        db.close();
+        Log.i("The M list after loop: ", forMedList.toString());
+        return forMedList;
+    }
+
+    /**
+     * fetch the request table rows for which priority is low
+     *
+     * @return ArrayList
+     */
+    public ArrayList fetchRowsForLowPriority(){
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        ArrayList forMedList = new ArrayList();
+        Cursor row = db.rawQuery("SELECT  REQUEST_ID, TITLE, USER_NAME,  CATEGORY,  DESCRIPTION, " + CREATE_DATE + " FROM  " + REQUEST_TABLE + "  WHERE  PRIORITY = 'Low' ", null);
+
+        if (row.moveToFirst()) {
+            do {
+                StringBuffer sbf = new StringBuffer();
+
+                sbf.append(row.getString(row.getColumnIndex("TITLE")));
+                sbf.append(",,");
+                sbf.append(row.getString(row.getColumnIndex("REQUEST_ID")));
+                sbf.append(",");
+                sbf.append(row.getString(row.getColumnIndex("USER_NAME")));
+                sbf.append(",");
+                sbf.append(row.getString(row.getColumnIndex("CATEGORY")));
+                sbf.append(",");
+                sbf.append(row.getString(row.getColumnIndex("DESCRIPTION")));
+                sbf.append(",");
+                sbf.append(row.getString(row.getColumnIndex("CREATE_DT")));
+
+                forMedList.add(sbf);
+                Log.i("The string buffer: ", sbf.toString());
+
+            } while (row.moveToNext());
+
+        }
+        db.close();
+        Log.i("The M list after loop: ", forMedList.toString());
+        return forMedList;
+    }
+
+    /**
+     * fetch the request table rows for history
+     *
+     * @return ArrayList
+     */
+    public ArrayList fetchRowsForHistory(String name, String email){
+        SQLiteDatabase db = this.getReadableDatabase();
+        ArrayList forMedList = new ArrayList();
+
+        Cursor row = db.rawQuery("SELECT  REQUEST_ID, TITLE, USER_NAME,  CATEGORY,  DESCRIPTION,  " + CREATE_DATE + "  FROM  " + REQUEST_TABLE + " " +
+                "  WHERE  USER_NAME  =  '" + name + "'  AND EMAIL_ID =  '" + email + "'  AND  '"+ CREATE_DATE +"' >= '"+curDate+"'  - 15", null);
+
+        if (row.moveToFirst()) {
+            do {
+                StringBuffer sbf = new StringBuffer();
+
+                sbf.append(row.getString(row.getColumnIndex("TITLE")));
+                sbf.append(",,");
+                sbf.append(row.getString(row.getColumnIndex("REQUEST_ID")));
+                sbf.append(",");
+                sbf.append(row.getString(row.getColumnIndex("USER_NAME")));
+                sbf.append(",");
+                sbf.append(row.getString(row.getColumnIndex("CATEGORY")));
+                sbf.append(",");
+                sbf.append(row.getString(row.getColumnIndex("DESCRIPTION")));
+                sbf.append(",");
+                sbf.append(row.getString(row.getColumnIndex("CREATE_DT")));
+
+                forMedList.add(sbf);
+                Log.i("The string buffer: ", sbf.toString());
+
+            } while (row.moveToNext());
+
+        }
+        db.close();
+        Log.i("The M list after loop: ", forMedList.toString());
+        return forMedList;
+    }
 
 
+    /**
+     * Insert comments
+     *
+     * @return long
+     */
+    public long insertComment(String id, String name, String comments){
+        SQLiteDatabase db = this.getReadableDatabase();
+        long rowInserted= 0;
+        Details items = new Details();
+        Log.i("User reply: ", name);
+        items.setReplyUser(name);
+        items.setReply(comments);
 
+        String query = "SELECT TITLE, EMAIL_ID, USER_NAME, CATEGORY,  PRIORITY, " + CREATE_DATE + ", DESCRIPTION  FROM  " + REQUEST_TABLE + "  WHERE  "+ REQUEST_ID +" = "+ Integer.parseInt(id)+" ";
 
+        Log.i("select query : ", query);
+
+        Cursor row = db.rawQuery("SELECT TITLE, EMAIL_ID, USER_NAME, CATEGORY,  PRIORITY, " + CREATE_DATE + ", DESCRIPTION  FROM  " + REQUEST_TABLE + " " +
+                "  WHERE  "+ REQUEST_ID +" = "+ Integer.parseInt(id)+" ", null);
+
+        if (row.moveToFirst()) {
+            do {
+                Log.i("Inside row", row.getString(row.getColumnIndex("USER_NAME")));
+                items.setTitle(row.getString(row.getColumnIndex("TITLE")));
+                items.setEmail(row.getString(row.getColumnIndex("EMAIL_ID")));
+                items.setName(row.getString(row.getColumnIndex("USER_NAME")));
+                items.setCategory(row.getString(row.getColumnIndex("CATEGORY")));
+                items.setPriority(row.getString(row.getColumnIndex("PRIORITY")));
+                items.setCreateDt(row.getString(row.getColumnIndex("CREATE_DT")));
+                items.setDesc(row.getString(row.getColumnIndex("DESCRIPTION")));
 
             } while (row.moveToNext());
         }
-        return highList;
+
+        if(row != null){
+
+            ContentValues values = new ContentValues();
+
+            Log.i("User bean : ", items.getName());
+            values.put(REQUEST_ID, Integer.parseInt(id));
+            values.put(CREATE_DATE, items.getCreateDt());
+            values.put(COMMENTS, items.getReply());
+            values.put(REPLY_USER_NAME, name);
+            values.put(REPLY_DATE, curDate.toString());
+
+            rowInserted = db.insert(COMMENTS_TABLE, null, values);
+
+            if(rowInserted != -1){
+
+                Log.i("Reply update successful",  String.valueOf(rowInserted));
+
+            } else {
+                Log.i("Error in update comment", "");
+            }
+        }
+
+        db.close();
+        return rowInserted;
     }
+
+    /**
+     * fetching user comments
+     *
+     * @return ArrayList
+     */
+    public ArrayList getComment(String id){
+        SQLiteDatabase db = this.getReadableDatabase();
+        ArrayList replyList = new ArrayList();
+
+        Cursor row = db.rawQuery("SELECT COMMENTS, " + REPLY_USER_NAME + ", "+REPLY_DATE+" FROM  " + COMMENTS_TABLE + " " +
+                "  WHERE  "+ REQUEST_ID +" = "+ Integer.parseInt(id) +" ", null);
+
+        if (row.moveToFirst()) {
+            do {
+
+                StringBuffer sbf = new StringBuffer();
+                sbf.append(row.getString(row.getColumnIndex(REPLY_USER_NAME)));
+                sbf.append(": ");
+                sbf.append(row.getString(row.getColumnIndex("COMMENTS")));
+                replyList.add(sbf);
+            } while (row.moveToNext());
+        }
+        db.close();
+        return replyList;
+    }
+
 }

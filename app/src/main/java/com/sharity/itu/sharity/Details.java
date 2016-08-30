@@ -1,5 +1,7 @@
 package com.sharity.itu.sharity;
 
+import java.util.Date;
+
 /**
  * Created by Madhura on 8/23/2016.
  */
@@ -17,7 +19,11 @@ public class Details {
     private String priority;
     private String title;
     private String desc;
-    private  String hint;
+    private String hint;
+    private String createDt;
+    private String replyDt;
+    private String reply;
+    private String replyUser;
 
 
     public Details(){
@@ -263,5 +269,37 @@ public class Details {
      */
     public void setHint(String hint) {
         this.hint = hint;
+    }
+
+    public String getCreateDt() {
+        return createDt;
+    }
+
+    public void setCreateDt(String createDt) {
+        this.createDt = createDt;
+    }
+
+    public String getReply() {
+        return reply;
+    }
+
+    public void setReply(String reply) {
+        this.reply = reply;
+    }
+
+    public String getReplyDt() {
+        return replyDt;
+    }
+
+    public void setReplyDt(String replyDt) {
+        this.replyDt = replyDt;
+    }
+
+    public String getReplyUser() {
+        return replyUser;
+    }
+
+    public void setReplyUser(String replyUser) {
+        this.replyUser = replyUser;
     }
 }

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/layout_style"
+    android:orientation="vertical" >
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/relativeLayout">
+
+        <RelativeLayout
+            android:id="@+id/relativeLayout1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp" >
+
+
+            <ListView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/commentList"
+                android:scrollbars="vertical"
+                android:divider="@color/sharity_grey" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/relativeLayout1"
+            android:layout_marginTop="15dp"
+            android:paddingBottom="10dp">
+
+            <EditText
+                android:layout_width="250dp"
+                android:layout_height="60dp"
+                android:inputType="textCapSentences|textMultiLine"
+                android:ems="10"
+                android:id="@+id/reply_box"
+                android:background="@drawable/field_layout"
+                android:enabled="true"
+                android:textColor="@android:color/black"
+                android:textColorHint="@android:color/darker_gray"
+                android:textSize="15sp"
+                android:textAlignment="gravity"
+                android:gravity="top"
+                android:typeface="normal"
+                android:visibility="visible"
+                android:maxLength="1200"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true" />
+        </RelativeLayout>
+
+
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/replyBtn"
+        android:layout_width="60dp"
+        android:layout_height="22dp"
+        android:background="@drawable/bg_style"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
+        android:text="comment"
+        android:layout_marginLeft="16dp"
+        android:layout_below="@+id/relativeLayout"
+        android:layout_alignParentStart="true"
+        android:textColor="@android:color/white"
+        android:layout_marginBottom="16dp"
+        android:textSize="8sp" />
+
+    <Button
+        android:id="@+id/replyCancel_btn"
+        android:layout_width="55dp"
+        android:layout_height="22dp"
+        android:background="@drawable/bg_style"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
+        android:text="@string/cancel"
+        android:layout_marginRight="16dp"
+        android:layout_alignTop="@+id/replyBtn"
+        android:layout_alignParentEnd="true"
+        android:textColor="@android:color/white"
+        android:layout_marginBottom="16dp"
+        android:textSize="8sp" />
+
+</RelativeLayout>

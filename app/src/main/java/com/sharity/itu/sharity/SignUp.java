@@ -51,7 +51,7 @@ public class SignUp extends Activity implements View.OnClickListener   {
 
             Bundle bundle = new Bundle();
 
-            bundle.putString("email", emailstr);
+            bundle.putString("email", emailstr.trim());
             bundle.putString("pwd", pass1str);
             bundle.putString("hint", hintstr);
 
@@ -90,7 +90,7 @@ public class SignUp extends Activity implements View.OnClickListener   {
 
         Matcher m = Pattern.compile(validemail).matcher(emailstr);
 
-        if (emailstr.equals("") || emailstr.length() == 0) {
+        if (emailstr.trim().equals("") || emailstr.trim().length() == 0) {
 
             Toast.makeText(this,"Please enter your ITU email ID", Toast.LENGTH_SHORT).show();
             validate = false;

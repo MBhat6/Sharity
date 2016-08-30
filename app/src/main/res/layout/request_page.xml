@@ -22,7 +22,6 @@
             android:id="@+id/reqPageTxt"
             android:typeface="normal"
             android:background="@color/colorPrimaryDark"
-            android:drawableLeft="@drawable/ic_keyboard_arrow_left"
             android:enabled="false"
             android:focusable="false"
             android:clickable="true"
@@ -32,13 +31,15 @@
             android:visibility="visible"
             android:textSize="16sp"
             android:inputType="none"
-            android:textAlignment="center"
+            android:textAlignment="gravity"
             android:layout_marginTop="12dp"
             android:layout_marginStart="12dp"
             android:hint="New Request"
             android:textColorHint="@android:color/white"
             android:layout_alignParentTop="true"
-            android:layout_alignParentStart="true" />
+            android:layout_alignParentStart="true"
+            android:gravity="left|center"
+            android:paddingLeft="10dp" />
 
     </LinearLayout>
 
@@ -184,6 +185,7 @@
             android:visibility="visible"
             android:textAlignment="textStart"
             android:textSize="17sp"
+            android:digits="abcdefhijklmnopqlstuvwzyz ABCDEFGHIJKLMNOPQRSTUV.!@#$%*^=/\|;:-_()+012345789"
             android:inputType="textCapSentences|text"
             android:layout_below="@+id/priorityId"
             android:layout_alignEnd="@+id/Create"
@@ -220,6 +222,7 @@
             android:textColor="@android:color/black"
             android:textColorHint="@android:color/darker_gray"
             android:textSize="17sp"
+            android:digits="abcdefhijklmnopqlstuvwzyz ABCDEFGHIJKLMNOPQRSTUV.!@#$%*^=/\|;:-_()+012345789"
             android:textAlignment="gravity"
             android:gravity="top"
             android:typeface="normal"

@@ -121,31 +121,31 @@ public class ProfilePage extends  Activity implements View.OnTouchListener,
         cnfrmPwd=cnfrmEdit.getText().toString();
 
         if(userName.getText().toString().trim() == null || userName.getText().toString().trim().length() == 0){
-            Toast.makeText(this,"Username is required", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this,"Name is required", Toast.LENGTH_SHORT).show();
             validate = false;
         }
 
         else if(program.getText().toString().trim()== null || program.getText().toString().trim().length() == 0 ){
-            Toast.makeText(this,"Please select the program", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this,"Please select your Current Program", Toast.LENGTH_SHORT).show();
             validate = false;
         }
 
         else if((expertise.getText().toString().trim() == null)  || (expertise.getText().toString().trim().length() == 0 )){
-            Toast.makeText(this,"Please enter expertise", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this,"Please enter your Expertise", Toast.LENGTH_SHORT).show();
             validate = false;
         }
 
         else if(interest.getText().toString().trim() == null || interest.getText().toString().trim().length() == 0){
-            Toast.makeText(this,"Please enter your interest", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this,"Please share your Topic of Interest", Toast.LENGTH_SHORT).show();
             validate = false;
         }
 
         else if((newPwd == null || newPwd == "") && (!(cnfrmPwd == null || cnfrmPwd == ""))){
-            Toast.makeText(this,"Please enter a password", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this,"Please enter a Password", Toast.LENGTH_SHORT).show();
             validate = false;
         }
         else if((cnfrmPwd == null || cnfrmPwd == "") && (!(newPwd == null || newPwd == ""))){
-            Toast.makeText(this,"Please confirm the password", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this,"Please confirm the Password", Toast.LENGTH_SHORT).show();
             validate = false;
         }
         else if(!newPwd.equalsIgnoreCase(cnfrmPwd)){

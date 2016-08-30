@@ -1,24 +1,29 @@
 package com.sharity.itu.sharity;
 
-import android.app.Activity;
-import android.content.Intent;
+import android.content.Context;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.support.design.widget.TabLayout;
+import android.support.v4.content.ContextCompat;
+import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.EditText;
+import android.widget.ExpandableListAdapter;
+import android.widget.ExpandableListView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Button;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
 /**
  * Created by Madhura on 8/16/2016.
@@ -35,6 +40,10 @@ public class HomePage extends AppCompatActivity implements OnClickListener {
     private DrawerLayout mDrawerLayout;
     private ListView mDrawerList;
 
+    private TabLayout tabLayout;
+    private ViewPager viewPager;
+    private ViewPagerAdapter viewPagerAdapter;
+
     private Toolbar toolbar;
 
     //Declare Titles And Icons For Our Navigation Drawer List View
@@ -46,7 +55,7 @@ public class HomePage extends AppCompatActivity implements OnClickListener {
     String NAME = "";
     String EMAIL = "";
 
-    int PROFILE = R.mipmap.sharity_icon;
+    int PROFILE = R.drawable.app_icon;
 
     RecyclerView mRecyclerView;                           // Declare RecyclerView
     RecyclerView.Adapter mAdapter;                        // Declare Adapter For Recycler View
@@ -105,7 +114,60 @@ public class HomePage extends AppCompatActivity implements OnClickListener {
         Drawer.setDrawerListener(mDrawerToggle); // Drawer Listener set to the Drawer toggle
         mDrawerToggle.syncState();               // Finally we set the drawer toggle sync State
 
+        //Creating tabbed layout
+        viewPager = (ViewPager) findViewById(R.id.viewpager);
 
+        viewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager(), NAME);
+        viewPager.setAdapter(viewPagerAdapter);
+
+        tabLayout = (TabLayout) findViewById(R.id.tabs);
+
+        final TabLayout.Tab HighTab = tabLayout.newTab();
+        final TabLayout.Tab MediumTab = tabLayout.newTab();
+        final TabLayout.Tab LowTab = tabLayout.newTab();
+
+        HighTab.setText("High");
+        MediumTab.setText("Medium");
+        LowTab.setText("Low");
+
+        tabLayout.addTab(HighTab, 0);
+        tabLayout.addTab(MediumTab, 1);
+        tabLayout.addTab(LowTab, 2);
+
+        tabLayout.setTabTextColors(ContextCompat.getColorStateList(this, R.color.tab1_selector));
+        tabLayout.setSelectedTabIndicatorColor(ContextCompat.getColor(this, R.color.colorAccent));
+
+        viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
+
+        tabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+
+                int position = tab.getPosition();
+
+                if(position == 0){
+                    tabLayout.setTabTextColors(ContextCompat.getColorStateList(HomePage.this, R.color.tab1_selector));
+                    viewPager.setCurrentItem(tab.getPosition());
+                }
+                if(position == 1){
+                    tabLayout.setTabTextColors(ContextCompat.getColorStateList(HomePage.this, R.color.tab2_selector));
+                    viewPager.setCurrentItem(tab.getPosition());
+                }
+                if(position == 2){
+                    tabLayout.setTabTextColors(ContextCompat.getColorStateList(HomePage.this, R.color.tab3_selector));
+                    viewPager.setCurrentItem(tab.getPosition());
+                }
+            }
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+
+            }
+        });
     }
 
     @Override
@@ -126,31 +188,14 @@ public class HomePage extends AppCompatActivity implements OnClickListener {
     @Override
     public void onClick(View v) {
 
-//        Log.i("The value of view ID: ", String.valueOf(v.getId()));
-//
-//        if( v.getId() == nBtn.getId() ) {
-//            Log.i("clicks","You clicked news button");
-//            Intent i = new Intent(HomePage.this, NewsPage.class);
-//            startActivity(i);
-//        }
-//
-//        else if( v.getId() == ProfBtn.getId() ) {
-//            Log.i("clicks","You clicked profile button");
-//            Intent i = new Intent(HomePage.this, ProfilePage.class);
-//            startActivity(i);
-//        }
-//
-//        else if( v.getId() == ReqBtn.getId() ) {
-//            Log.i("clicks","You clicked request button");
-//            Intent i = new Intent(HomePage.this, NewRequestPage.class);
-//            startActivity(i);
-//        }
-//
-//        else if( v.getId() == HistBtn.getId() ) {
-//            Log.i("clicks","You clicked my request button");
-//            Intent i = new Intent(HomePage.this, MyHistoryPage.class);
-//            startActivity(i);
-//        }
 
+    }
+
+    public class CustomView extends View
+    {
+        public CustomView(Context context)
+        {
+            super(context, null);
+        }
     }
 }

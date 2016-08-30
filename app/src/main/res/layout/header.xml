@@ -41,11 +41,11 @@
     </LinearLayout>
 
     <de.hdodenhof.circleimageview.CircleImageView
-        android:layout_width="70dp"
-        android:layout_height="70dp"
-        android:src="@mipmap/sharity_icon"
+        android:layout_width="85dp"
+        android:layout_height="85dp"
+        android:src="@drawable/app_icon"
         android:layout_marginLeft="16dp"
-        android:layout_marginTop="38dp"
+        android:layout_marginTop="25dp"
         android:id="@+id/circleView"
         />
 </RelativeLayout>
