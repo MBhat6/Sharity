@@ -71,6 +71,7 @@ public class DatabaseCreator extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
 
+
             db.execSQL("CREATE TABLE " + USER_INFO_TABLE + "(" + USER_NAME + " VARCHAR(60) NOT NULL, "
                                                                 + PASSWORD + " VARCHAR(50) NOT NULL, "
                                                                 + EMAIL_ID + " VARCHAR(100) PRIMARY KEY NOT NULL, "
