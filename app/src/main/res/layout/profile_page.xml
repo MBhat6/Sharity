@@ -108,6 +108,7 @@
             android:ems="10"
             android:id="@+id/name"
             android:textColor="@android:color/black"
+            android:digits="abcdefghijklmnopqrstuvwxyz  ABCDEFGHIJKLMNOPQRSTUVWXYZ.@-_0123456789"
             android:textColorHint="@android:color/darker_gray"
             android:typeface="normal"
             android:enabled="true"
