@@ -1,3 +1,19 @@
+/////////////////////////////////////////////////////////////////////////
+//                                                                     //
+//                                                                     //
+//   class name: MyHistoryPage.java                                    //
+//                                                                     //
+/////////////////////////////////////////////////////////////////////////
+//                                                                     //
+//      Revision log                                                   //
+//     --------------                                                  //
+//                                                                     //
+//      Created by                      Madhura Bhat                   //
+//      Modified for history function   Madhura                        //
+//      Modified for code review        Madhura Bhat                   //
+//                                                                     //
+/////////////////////////////////////////////////////////////////////////
+
 package com.sharity.itu.sharity;
 
 import android.app.Activity;
@@ -13,7 +29,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 /**
- * Created by Madhura on 8/16/2016.
+ * Created by Madhura on 7/20/2016.
  */
 public class MyHistoryPage extends  Activity {
 
@@ -36,6 +52,7 @@ public class MyHistoryPage extends  Activity {
         userName = bundle.getString("NAME");
         email = bundle.getString("EMAIL");
 
+        //Attaching expandable list to the page
         expandableListView = (ExpandableListView) findViewById(R.id.expandableListHistory);
 
         dataList = new ArrayList();

@@ -1,9 +1,27 @@
+/////////////////////////////////////////////////////////////////////////
+//                                                                     //
+//                                                                     //
+//   class name: Details.java                                          //
+//                                                                     //
+/////////////////////////////////////////////////////////////////////////
+//                                                                     //
+//                      Revision log                                   //
+//     ---------------------------------------------------------       //
+//                                                                     //
+//      Created by                               Madhura               //
+//      Modified for New Request function        Madhura               //
+//      Modified for Sign up function            Priyanka              //
+//                                                                     //
+/////////////////////////////////////////////////////////////////////////
+
+
+
 package com.sharity.itu.sharity;
 
 import java.util.Date;
 
 /**
- * Created by Madhura on 8/23/2016.
+ * Created by Madhura on 7/15/2016.
  */
 public class Details {
 
@@ -271,34 +289,67 @@ public class Details {
         this.hint = hint;
     }
 
+    /**
+     * getter for createDt
+     * @return createDt
+     */
     public String getCreateDt() {
         return createDt;
     }
 
+    /**
+     * setter for createDt
+     * @param createDt
+     */
     public void setCreateDt(String createDt) {
         this.createDt = createDt;
     }
 
+
+    /**
+     * getter for reply
+     * @return reply
+     */
     public String getReply() {
         return reply;
     }
 
+    /**
+     * setter for reply
+     * @param reply
+     */
     public void setReply(String reply) {
         this.reply = reply;
     }
 
+    /**
+     * getter for replyDt
+     * @return replyDt
+     */
     public String getReplyDt() {
         return replyDt;
     }
 
+    /**
+     * setter for replyDt
+     * @param replyDt
+     */
     public void setReplyDt(String replyDt) {
         this.replyDt = replyDt;
     }
 
+    /**
+     * getter for replyUser
+     * @return replyUser
+     */
     public String getReplyUser() {
         return replyUser;
     }
 
+    /**
+     * setter for replyUser
+     * @param replyUser
+     */
     public void setReplyUser(String replyUser) {
         this.replyUser = replyUser;
     }

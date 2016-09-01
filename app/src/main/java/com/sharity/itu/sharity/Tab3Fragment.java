@@ -1,3 +1,18 @@
+/////////////////////////////////////////////////////////////////////////
+//                                                                     //
+//                                                                     //
+//       class name: Tab3Fragment.java                                 //
+//                                                                     //
+/////////////////////////////////////////////////////////////////////////
+//                                                                     //
+//      Revision log                                                   //
+//     --------------                                                  //
+//                                                                     //
+//      Created by                              Madhura Bhat           //
+//      Modified for tab function               Madhura                //
+//      Modified for code review                Priyanka               //
+/////////////////////////////////////////////////////////////////////////
+
 package com.sharity.itu.sharity;
 
 import android.support.v4.app.Fragment;
@@ -12,7 +27,7 @@ import android.widget.ExpandableListView;
 import java.util.ArrayList;
 
 /**
- * Created by Madhura on 8/28/2016.
+ * Created by Madhura on 8/18/2016.
  */
 public class Tab3Fragment extends Fragment {
 

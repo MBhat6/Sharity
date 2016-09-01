@@ -1,3 +1,19 @@
+/////////////////////////////////////////////////////////////////////////
+//                                                                     //
+//                                                                     //
+//   class name: NewRequestPage.java                                   //
+//                                                                     //
+/////////////////////////////////////////////////////////////////////////
+//                                                                     //
+//      Revision log                                                   //
+//     --------------                                                  //
+//                                                                     //
+//      Created by                      Madhura Bhat                   //
+//      Modified for request function   Madhura                        //
+//      Modified for code review        Madhura Bhat                   //
+//      Modified for bug fix            Priyanka                       //
+/////////////////////////////////////////////////////////////////////////
+
 package com.sharity.itu.sharity;
 
 import android.app.Activity;
@@ -16,7 +32,7 @@ import android.widget.Toast;
 
 
 /**
- * Created by Madhura on 8/16/2016.
+ * Created by Madhura on 8/02/2016.
  */
 public class NewRequestPage extends  Activity implements View.OnTouchListener,
         AdapterView.OnItemClickListener, OnClickListener{

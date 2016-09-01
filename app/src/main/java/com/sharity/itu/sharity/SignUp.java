@@ -1,3 +1,20 @@
+/////////////////////////////////////////////////////////////////////////
+//                                                                     //
+//                                                                     //
+//       class name: SignUp.java                                       //
+//                                                                     //
+/////////////////////////////////////////////////////////////////////////
+//                                                                     //
+//      Revision log                                                   //
+//     --------------                                                  //
+//                                                                     //
+//      Created by                              Madhura Bhat           //
+//      Modified for Sign up function           Priyanka               //
+//      Modified for code review                Priyanka               //
+//      Modified for bug fix                    Priyanka               //
+//      Bug fix                                 Priyanka               //
+/////////////////////////////////////////////////////////////////////////
+
 package com.sharity.itu.sharity;
 
 import android.app.Activity;
@@ -13,7 +30,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- * Created by Madhura on 8/15/2016.
+ * Created by Madhura on 7/10/2016.
  */
 public class SignUp extends Activity implements View.OnClickListener   {
 

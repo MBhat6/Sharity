@@ -1,3 +1,20 @@
+/////////////////////////////////////////////////////////////////////////
+//                                                                     //
+//                                                                     //
+//       class name: ProfilePage.java                                  //
+//                                                                     //
+/////////////////////////////////////////////////////////////////////////
+//                                                                     //
+//      Revision log                                                   //
+//     --------------                                                  //
+//                                                                     //
+//      Created by                              Madhura Bhat           //
+//      Modified for profile update function    Priyanka               //
+//      Modified for code review                Priyanka               //
+//      Modified for bug fix                    Priyanka               //
+//      Bug fix                                 Madhura                //
+/////////////////////////////////////////////////////////////////////////
+
 package com.sharity.itu.sharity;
 
 import android.app.Activity;
@@ -18,7 +35,7 @@ import android.widget.Toast;
 import java.util.ArrayList;
 
 /**
- * Created by Madhura on 8/16/2016.
+ * Created by Madhura on 7/24/2016.
  */
 public class ProfilePage extends  Activity implements View.OnTouchListener,
         AdapterView.OnItemClickListener, OnClickListener{

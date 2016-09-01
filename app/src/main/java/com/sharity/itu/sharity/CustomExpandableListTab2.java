@@ -1,7 +1,23 @@
+/////////////////////////////////////////////////////////////////////////
+//                                                                     //
+//                                                                     //
+//   class name: CustomExpandableListTab2.java                         //
+//                                                                     //
+/////////////////////////////////////////////////////////////////////////
+//                                                                     //
+//                      Revision log                                   //
+//     ---------------------------------------------------------       //
+//                                                                     //
+//      Created by                      Madhura                        //
+//      Modified for code review        Madhura                        //
+//      Modified for code review        Priyanka                       //
+//      Modified for comment function   Madhura                        //                                                                   //
+/////////////////////////////////////////////////////////////////////////
+
 package com.sharity.itu.sharity;
 
 /**
- * Created by Madhura on 8/29/2016.
+ * Created by Madhura on 8/02/2016.
  */
 
 import java.util.ArrayList;
@@ -189,6 +205,9 @@ public class CustomExpandableListTab2 extends BaseExpandableListAdapter implemen
         adapter = new ArrayAdapter<>(context, R.layout.comment_layout, arrayList);
         list.setAdapter(adapter);
 
+        /**
+         * On click listener for reply button
+         */
         reply.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -1,3 +1,22 @@
+/////////////////////////////////////////////////////////////////////////
+//                                                                     //
+//                                                                     //
+//   class name: CustomExpandableListHistory.java                      //
+//                                                                     //
+/////////////////////////////////////////////////////////////////////////
+//                                                                     //
+//                      Revision log                                   //
+//     ---------------------------------------------------------       //
+//                                                                     //
+//      Created by                      Madhura                        //
+//      Modified for code review        Madhura                        //
+//      Modified for code review        Priyanka                       //
+//      Modified for code review        Madhura                        //
+//      Bug fix                         Madhura                        //
+//      Modified for comment function   Madhura                        //
+/////////////////////////////////////////////////////////////////////////
+
+
 package com.sharity.itu.sharity;
 
 import java.util.ArrayList;
@@ -20,7 +39,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 /**
- * Created by Madhura on 8/29/2016.
+ * Created by Madhura on 8/02/2016.
  */
 public class CustomExpandableListHistory extends BaseExpandableListAdapter implements OnClickListener{
 

@@ -1,3 +1,18 @@
+/////////////////////////////////////////////////////////////////////////
+//                                                                     //
+//                                                                     //
+//       class name: Tab1Fragment.java                                 //
+//                                                                     //
+/////////////////////////////////////////////////////////////////////////
+//                                                                     //
+//      Revision log                                                   //
+//     --------------                                                  //
+//                                                                     //
+//      Created by                              Madhura Bhat           //
+//      Modified for tab function               Madhura                //
+//      Modified for code review                Priyanka               //
+/////////////////////////////////////////////////////////////////////////
+
 package com.sharity.itu.sharity;
 
 import android.os.Bundle;
@@ -16,7 +31,7 @@ import java.util.List;
 
 
 /**
- * Created by Madhura on 8/27/2016.
+ * Created by Madhura on 8/18/2016.
  */
 
 public class Tab1Fragment extends Fragment {

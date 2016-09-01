@@ -1,3 +1,20 @@
+/////////////////////////////////////////////////////////////////////////
+//                                                                     //
+//                                                                     //
+//       class name: SignUpDetailsPage.java                            //
+//                                                                     //
+/////////////////////////////////////////////////////////////////////////
+//                                                                     //
+//      Revision log                                                   //
+//     --------------                                                  //
+//                                                                     //
+//      Created by                              Madhura Bhat           //
+//      Modified for Sign up-profile function   Priyanka               //
+//      Modified for code review                Priyanka               //
+//      Modified for bug fix                    Priyanka               //
+//      Bug fix                                 Priyanka               //
+/////////////////////////////////////////////////////////////////////////
+
 package com.sharity.itu.sharity;
 
 import android.app.Activity;
@@ -17,7 +34,7 @@ import android.view.View.OnClickListener;
 import android.widget.Toast;
 
 /**
- * Created by Madhura on 8/15/2016.
+ * Created by Madhura on 7/12/2016.
  */
 public class SignUpDetailsPage  extends Activity implements OnTouchListener,
         OnItemClickListener,  OnClickListener{

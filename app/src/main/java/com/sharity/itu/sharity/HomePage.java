@@ -1,3 +1,19 @@
+/////////////////////////////////////////////////////////////////////////
+//                                                                     //
+//                                                                     //
+//   class name: HomePage.java                                         //
+//                                                                     //
+/////////////////////////////////////////////////////////////////////////
+//                                                                     //
+//                      Revision log                                   //
+//     ---------------------------------------------------------       //
+//                                                                     //
+//      Created by                      Madhura                        //
+//      Modified for navigation dtawer  Madhura                        //
+//      Modified for code review        Madhura                        //
+//      Modified for comment function   Madhura                        //                                                                   //
+/////////////////////////////////////////////////////////////////////////
+
 package com.sharity.itu.sharity;
 
 import android.content.Context;
@@ -26,7 +42,7 @@ import java.util.HashMap;
 import java.util.List;
 
 /**
- * Created by Madhura on 8/16/2016.
+ * Created by Madhura on 7/17/2016.
  */
 public class HomePage extends AppCompatActivity implements OnClickListener {
 
@@ -134,6 +150,7 @@ public class HomePage extends AppCompatActivity implements OnClickListener {
         tabLayout.addTab(MediumTab, 1);
         tabLayout.addTab(LowTab, 2);
 
+        //Setting color for the tab on first load of the page
         tabLayout.setTabTextColors(ContextCompat.getColorStateList(this, R.color.tab1_selector));
         tabLayout.setSelectedTabIndicatorColor(ContextCompat.getColor(this, R.color.colorAccent));
 
@@ -144,7 +161,7 @@ public class HomePage extends AppCompatActivity implements OnClickListener {
             public void onTabSelected(TabLayout.Tab tab) {
 
                 int position = tab.getPosition();
-
+                ///Setting different for different tabs on tab change
                 if(position == 0){
                     tabLayout.setTabTextColors(ContextCompat.getColorStateList(HomePage.this, R.color.tab1_selector));
                     viewPager.setCurrentItem(tab.getPosition());

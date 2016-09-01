@@ -1,3 +1,23 @@
+/////////////////////////////////////////////////////////////////////////
+//                                                                     //
+//                                                                     //
+//      class name: MainActivity.java                                  //
+//                                                                     //
+/////////////////////////////////////////////////////////////////////////
+//                                                                     //
+//      Revision log                                                   //
+//     --------------                                                  //
+//                                                                     //
+//      Created by                      Madhura Bhat                   //
+//      Modified for login in function  Priyanka                       //
+//      Modified for code review        Madhura Bhat                   //
+//      Modified for code review        Priyanka                       //
+//      Bug fix                         Priyanka                       //
+//      Bug fix                         Priyanka                       //
+//      Bug fix                         Madhura                        //
+/////////////////////////////////////////////////////////////////////////
+
+
 package com.sharity.itu.sharity;
 
 import android.app.Activity;
@@ -18,7 +38,9 @@ import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-
+/**
+ * Created ny Madhura on 7/16/2016.
+ */
 public class MainActivity extends Activity implements OnClickListener
         /*OnTouchListener, onItemClickListener*/{
 

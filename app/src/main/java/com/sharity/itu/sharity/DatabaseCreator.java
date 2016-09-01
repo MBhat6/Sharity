@@ -1,3 +1,36 @@
+/////////////////////////////////////////////////////////////////////////
+//                                                                     //
+//                                                                     //
+//      class name: DatabaseCreator.java                               //
+//                                                                     //
+/////////////////////////////////////////////////////////////////////////
+//                                                                     //
+//      Revision log                                                   //
+//     --------------                                                  //
+//                                                                     //
+//      Created by                          Madhura                    //
+//      Modified for New Request function   Madhura                    //
+//      Modified for Code review            Madhura                    //
+//      Modified for login function         Priyanka                   //
+//      Modified for code review            Priyanka                   //
+//      Modified for forgot password        Priyanka                   //
+//      Modified for sign up function       Priyanka                   //
+//      Modified for code review            Priyanka                   //
+//      Modified for bug fix                Madhura                    //
+//      Modified for code review            Priyanka                   //
+//      Modified for Edit Profile function  Priyanka                   //
+//      Modified for code review            Priyanka                   //
+//      Bug fix                             Madhura                    //
+//      Modified for Home page              Madhura                    //
+//      Modified for code review            Madhura                    //
+//      Bug fix                             Priyanka                   //
+//      Modified for My History page        Madhura                    //
+//      Modified for code review            Madhura                    //
+//      Bug fix                             Priyanka                   //
+//      Modified for comment function       Madhura                    //
+//      Modified for code review            Madhura                    //
+/////////////////////////////////////////////////////////////////////////
+
 package com.sharity.itu.sharity;
 
 import android.content.ContentValues;
@@ -8,7 +41,6 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Bundle;
 import android.util.Log;
-import android.widget.EditText;
 import android.widget.Toast;
 
 import java.text.SimpleDateFormat;
@@ -19,7 +51,7 @@ import java.util.Date;
 /**
  * Created by Madhura on 7/17/2016.
  */
-public class DatabaseCreator extends SQLiteOpenHelper {
+public class DatabaseCreator extends SQLiteOpenHelper  {
 
     public static final int OLD_VERSION = 5;
     public static final int NEW_VERSION = 6;
@@ -93,11 +125,11 @@ public class DatabaseCreator extends SQLiteOpenHelper {
                                                             + REPLY_DATE + " DATE ) ");
 
 
-        db.execSQL("CREATE TABLE " + COMMENTS_TABLE + "(" + REQUEST_ID + " INTEGER, "
-                                                        + CREATE_DATE + " DATE NOT NULL, "
-                                                        + COMMENTS + " VARCHAR(5000), "
-                                                        + REPLY_USER_NAME + " VARCHAR(100), "
-                                                        + REPLY_DATE + " DATE ) ");
+            db.execSQL("CREATE TABLE " + COMMENTS_TABLE + "(" + REQUEST_ID + " INTEGER, "
+                                                            + CREATE_DATE + " DATE NOT NULL, "
+                                                            + COMMENTS + " VARCHAR(5000), "
+                                                            + REPLY_USER_NAME + " VARCHAR(100), "
+                                                            + REPLY_DATE + " DATE ) ");
     }
 
 

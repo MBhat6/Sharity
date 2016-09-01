@@ -1,8 +1,27 @@
+
+/////////////////////////////////////////////////////////////////////////
+//                                                                     //
+//                                                                     //
+//   class name: CustomExpandableListTab3.java                         //
+//                                                                     //
+/////////////////////////////////////////////////////////////////////////
+//                                                                     //
+//                      Revision log                                   //
+//     ---------------------------------------------------------       //
+//                                                                     //
+//      Created by                      Madhura                        //
+//      Modified for code review        Madhura                        //
+//      Modified for code review        Priyanka                       //
+//      Modified for code review        Priyanka                       //
+//      Bug fix                         Madhura                        //
+//      Modified for comment function   Madhura                        //
+/////////////////////////////////////////////////////////////////////////
+
 package com.sharity.itu.sharity;
 
 
 /**
- * Created by Madhura on 8/29/2016.
+ * Created by Madhura on 8/02/2016.
  */
 import java.util.ArrayList;
 

@@ -1,3 +1,18 @@
+/////////////////////////////////////////////////////////////////////////
+//                                                                     //
+//                                                                     //
+//       class name: ViewPagerAdapter.java                             //
+//                                                                     //
+/////////////////////////////////////////////////////////////////////////
+//                                                                     //
+//      Revision log                                                   //
+//     --------------                                                  //
+//                                                                     //
+//      Created by                              Madhura Bhat           //
+//      Modified for tab function               Madhura                //
+//      Modified for code review                Priyanka               //
+/////////////////////////////////////////////////////////////////////////
+
 package com.sharity.itu.sharity;
 
 import android.os.Bundle;
@@ -7,7 +22,7 @@ import android.support.v4.app.FragmentStatePagerAdapter;
 
 
 /**
- * Created by Madhura on 8/27/2016.
+ * Created by Madhura on 8/18/2016.
  */
 public class ViewPagerAdapter extends FragmentStatePagerAdapter {
 
@@ -19,6 +34,7 @@ public class ViewPagerAdapter extends FragmentStatePagerAdapter {
         this.userName = name;
     }
 
+    //Calling new tab for every tab change/tab swipe
     @Override
     public Fragment getItem(int position) {
 
